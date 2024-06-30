@@ -12,7 +12,7 @@ import threading
 import json
 from config import API_ID, API_HASH, PICS
 from database.db import database 
-from Codewithshubham.strings import strings, HELP_TXT ,
+from Codewithshubham.strings import strings, HELP_TXT
 
 def get(obj, key, default=None):
     try:
