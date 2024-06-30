@@ -4,15 +4,14 @@ import asyncio
 import pyrogram
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated, UserAlreadyParticipant, InviteHashExpired, UsernameNotOccupied
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message 
-from Script import START_TXT
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 import time
 import os
 import threading
 import json
 from config import API_ID, API_HASH, PICS
 from database.db import database 
-from Codewithshubham.strings import strings, HELP_TXT
+from Codewithshubham.strings import strings, HELP_TXT, START_TXT
 
 def get(obj, key, default=None):
     try:
@@ -73,7 +72,7 @@ async def send_start(client: Client, message: Message):
     reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention),
+            caption=codewithshubham.strings.START_TXT.format(message.from_user.mention),
             reply_markup=reply_markup
         )
         return
