@@ -4,14 +4,14 @@ import asyncio
 import pyrogram
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated, UserAlreadyParticipant, InviteHashExpired, UsernameNotOccupied
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message 
 import time
 import os
 import threading
 import json
-from config import API_ID, API_HASH, PICS
+from config import API_ID, API_HASH
 from database.db import database 
-from Codewithshubham.strings import strings, HELP_TXT, START_TXT
+from Codewithshubham.strings import strings, HELP_TXT
 
 def get(obj, key, default=None):
     try:
@@ -70,12 +70,8 @@ async def send_start(client: Client, message: Message):
         InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •', url='https://t.me/MR_Persis_Bot')
 	]]
     reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=codewithshubham.strings.START_TXT.format(message.from_user.mention),
-            reply_markup=reply_markup
-        )
-        return
+    await client.send_message(message.chat.id, f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot, I can send you restricted content by its post link.\n\nFor downloading restricted content /login first.\n\nKnow how to use bot by - /help</b>", reply_markup=reply_markup, reply_to_message_id=message.id)
+    return
 
 
 # help command
