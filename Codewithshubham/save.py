@@ -71,7 +71,6 @@ async def send_start(client: Client, message: Message):
         InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •', url='https://t.me/MR_Persis_Bot')
 	]]
     reply_markup = InlineKeyboardMarkup(buttons)
-        me2 = (await client.get_me()).mention
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, me2),
