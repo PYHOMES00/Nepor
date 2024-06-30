@@ -5,14 +5,14 @@ import pyrogram
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated, UserAlreadyParticipant, InviteHashExpired, UsernameNotOccupied
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message 
-from Script import script
+from Script import START_TXT
 import time
 import os
 import threading
 import json
 from config import API_ID, API_HASH, PICS
 from database.db import database 
-from Codewithshubham.strings import strings, HELP_TXT
+from Codewithshubham.strings import strings, HELP_TXT ,
 
 def get(obj, key, default=None):
     try:
