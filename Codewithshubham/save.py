@@ -5,6 +5,7 @@ import pyrogram
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated, UserAlreadyParticipant, InviteHashExpired, UsernameNotOccupied
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message 
+from Script import script
 import time
 import os
 import threading
@@ -70,10 +71,13 @@ async def send_start(client: Client, message: Message):
         InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •', url='https://t.me/MR_Persis_Bot')
 	]]
     reply_markup = InlineKeyboardMarkup(buttons)
-	await message.reply_photo(
+        me2 = (await client.get_me()).mention
+        await message.reply_photo(
             photo=random.choice(PICS),
-    await client.send_message(message.chat.id, f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot, I can send you restricted content by its post link.\n\nFor downloading restricted content /login first.\n\nKnow how to use bot by - /help</b>", reply_markup=reply_markup, reply_to_message_id=message.id)
-    return
+            caption=script.START_TXT.format(message.from_user.mention, me2),
+            reply_markup=reply_markup
+        )
+        return
 
 
 # help command
